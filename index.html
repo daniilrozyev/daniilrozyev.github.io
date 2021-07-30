@@ -1,5 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <!--Color Clock -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Clock</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Open Sans";
+        /*margin-top: 300px;*/
+        text-align: center;
+        /*color: white;*/
+        padding: 0;
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrapper {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .clock-wrapper {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -75%);
+    }
+
+    .color-wrapper {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+    }
+
+    .clock-one {
+        position: absolute;
+        font-weight: 300;
+        font-size: 120px;
+        color: #000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .clock-two {
+        position: absolute;
+        font-weight: 300;
+        font-size: 120px;
+        color: #fff;
+        top: 50%;
+        left: 51%;
+        transform: translate(-49%, -50%);
+    }
+
+    .color-one {
+        color: #000;
+        font-size: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+    }
+
+    .color-two {
+        color: #fff;
+        font-size: 25px;
+        position: absolute;
+        top: 50%;
+        left: 51%;
+        transform: translate(-49%, -50%);
+        width: 250px;
+    }
+
+    @media (max-width: 460px) {
+        .wrapper {
+            width: 250px;
+            height: 250px;
+        }
+
+        .clock-one {
+            font-size: 60px;
+        }
+
+        .clock-two {
+            font-size: 60px;
+        }
+
+        .color-one {
+            font-size: 20px;
+        }
+
+        .color-two {
+            font-size: 20px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="clock-wrapper">
+            <h1 class="clock-one" id="clock-one">00:00:00</h1>
+            <h2 class="clock-two" id="clock-two">00:00:00</h2>
+        </div>
+        <div class="color-wrapper">
+            <p class="color-one" id="color-one">#000000</p>
+            <p class="color-two" id="color-two">#000000</p>
+        </div>
+    </div>
+    <script>
+    let clockElementOne = document.querySelector("#clock-one"),
+        clockElementTwo = document.querySelector("#clock-two"),
+        colorElementOne = document.querySelector("#color-one"),
+        colorElementTwo = document.querySelector("#color-two");
+
+    function htmlCssJsClock() {
+        let time = new Date(),
+            hours = time.getHours(),
+            minutes = time.getMinutes(),
+            seconds = time.getSeconds();
+
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
+        const clock = `${hours}:${minutes}:${seconds}`,
+            color = `#${hours}${minutes}${seconds}`;
+
+        clockElementOne.innerHTML = clock;
+        clockElementTwo.innerHTML = clock;
+        colorElementOne.innerHTML = `PAGE COLOR<br>${color}`;
+        colorElementTwo.innerHTML = `PAGE COLOR<br>${color}`;
+
+        document.body.style.background = color;
+    }
+
+    htmlCssJsClock();
+    setInterval(htmlCssJsClock, 1000);
+    </script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
         <!--Color Clock -->
 	<meta charset="UTF-8">
@@ -62,3 +232,4 @@
 	</script>
 </body>
 </html>
+ -->
