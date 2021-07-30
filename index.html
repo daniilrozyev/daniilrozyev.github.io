@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!--Color Clock -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clock</title>
+
+	<style>
+		body {
+			font-family: "Open Sans";
+			margin-top: 300px;
+			text-align: center;
+			color: white;
+		}
+
+		#clock {
+			font-weight: 300;
+			font-size: 120px;
+		}
+  	</style> 
+
+</head>
+<body>
+
+	<h1 id="clock">00:00:00</h1>
+	<p id="color">#000000</p>
+
+	<script>
+		let clockElement = document.querySelector("#clock"),
+			colorElement = document.querySelector("#color");
+
+		function htmlCssJsClock() {
+			let time = new Date(),
+				hours = time.getHours(),
+				minutes = time.getMinutes(),
+				seconds = time.getSeconds();
+
+			if (hours < 10) {
+				hours = "0" + hours;
+			}
+
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
+
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
+
+			const clock = `${hours}:${minutes}:${seconds}`,
+				  color = `#${hours}${minutes}${seconds}`;
+
+			clockElement.innerHTML = clock;
+			colorElement.innerHTML = `PAGE COLOR<br>${color}`;
+
+			document.body.style.background = color;
+		}
+
+		htmlCssJsClock();
+		setInterval(htmlCssJsClock, 1000);
+	</script>
+</body>
+</html>
