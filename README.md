@@ -1,1 +1,1 @@
-https://daniilrozyev.github.io/
+daniilrozyev links for communication - https://daniilrozyev.github.io/
