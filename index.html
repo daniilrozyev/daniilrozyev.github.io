@@ -1,238 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
-<head>
-    <!--Color Clock -->
+  <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Clock</title>
-    <style>
-    * {
-        box-sizing: border-box;
-    }
+    <meta name="description" content="Ссылки для связи с daniilrozyev">
+    <title>daniilrozyev</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    body {
-        font-family: "Open Sans";
-        /*margin-top: 300px;*/
-        text-align: center;
-        /*color: white;*/
-        padding: 0;
-        margin: 0;
-    }
-
-    h1,
-    h2,
-    p {
-        padding: 0;
-        margin: 0;
-    }
-
-    .wrapper {
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .clock-wrapper {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -75%);
-    }
-
-    .color-wrapper {
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        transform: translate(-50%, -25%);
-    }
-
-    .clock-one {
-        position: absolute;
-        font-weight: 300;
-        font-size: 120px;
-        color: #000;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .clock-two {
-        position: absolute;
-        font-weight: 300;
-        font-size: 120px;
-        color: #fff;
-        top: 50%;
-        left: 51%;
-        transform: translate(-49%, -50%);
-    }
-
-    .color-one {
-        color: #000;
-        font-size: 25px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 250px;
-    }
-
-    .color-two {
-        color: #fff;
-        font-size: 25px;
-        position: absolute;
-        top: 50%;
-        left: 51%;
-        transform: translate(-49%, -50%);
-        width: 250px;
-    }
-
-    @media (max-width: 460px) {
-        .wrapper {
-            width: 250px;
-            height: 250px;
-        }
-
-        .clock-one {
-            font-size: 60px;
-        }
-
-        .clock-two {
-            font-size: 60px;
-        }
-
-        .color-one {
-            font-size: 20px;
-        }
-
-        .color-two {
-            font-size: 20px;
-        }
-    }
-    </style>
-</head>
-
-<body>
-    <div class="wrapper">
-        <div class="clock-wrapper">
-            <h1 class="clock-one" id="clock-one">00:00:00</h1>
-            <h2 class="clock-two" id="clock-two">00:00:00</h2>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="block">
+          <div class="logo">
+            <img src="https://avatars.githubusercontent.com/u/24785024?v=4" alt="daniilrozyev logo" class="logo-img">
+          </div>
+          <p class="name">daniilrozyev</p>
         </div>
-        <div class="color-wrapper">
-            <p class="color-one" id="color-one">#000000</p>
-            <p class="color-two" id="color-two">#000000</p>
+        <div class="block">
+          <a href="https://t.me/daniilrozyev" class="block__link color-telegram">Telegram</a>
         </div>
+        <div class="block">
+          <a href="https://yoomoney.ru/to/410011469520158/" class="block__link color-yoomoney">YooMoney</a>
+        </div>
+        <div class="block">
+          <a href="mailto:daniilrozyev@gmail.com" class="block__link color-gmail">Gmail</a>
+        </div>
+        <div class="block">
+          <a href="https://boosty.to/daniilrozyev" class="block__link color-boosty">Boosty</a>
+        </div>
+        <div class="block">
+          <a href="https://www.donationalerts.com/r/daniilrozyev" class="block__link color-donationalerts">Donationalerts</a>
+        </div>
+      </div>
     </div>
-    <script>
-    let clockElementOne = document.querySelector("#clock-one"),
-        clockElementTwo = document.querySelector("#clock-two"),
-        colorElementOne = document.querySelector("#color-one"),
-        colorElementTwo = document.querySelector("#color-two");
-
-    function htmlCssJsClock() {
-        let time = new Date(),
-            hours = time.getHours(),
-            minutes = time.getMinutes(),
-            seconds = time.getSeconds();
-
-        if (hours < 10) {
-            hours = "0" + hours;
-        }
-
-        if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-
-        const clock = `${hours}:${minutes}:${seconds}`,
-            color = `#${hours}${minutes}${seconds}`;
-
-        clockElementOne.innerHTML = clock;
-        clockElementTwo.innerHTML = clock;
-        colorElementOne.innerHTML = `PAGE COLOR<br>${color}`;
-        colorElementTwo.innerHTML = `PAGE COLOR<br>${color}`;
-
-        document.body.style.background = color;
-    }
-
-    htmlCssJsClock();
-    setInterval(htmlCssJsClock, 1000);
-    </script>
-</body>
+  </body>
 
 </html>
-
-<!-- OLD
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Clock</title>
-
-	<style>
-		body {
-			font-family: "Open Sans";
-			margin-top: 300px;
-			text-align: center;
-			color: white;
-		}
-
-		#clock {
-			font-weight: 300;
-			font-size: 120px;
-		}
-  	</style> 
-
-</head>
-<body>
-
-	<h1 id="clock">00:00:00</h1>
-	<p id="color">#000000</p>
-
-	<script>
-		let clockElement = document.querySelector("#clock"),
-			colorElement = document.querySelector("#color");
-
-		function htmlCssJsClock() {
-			let time = new Date(),
-				hours = time.getHours(),
-				minutes = time.getMinutes(),
-				seconds = time.getSeconds();
-
-			if (hours < 10) {
-				hours = "0" + hours;
-			}
-
-			if (minutes < 10) {
-				minutes = "0" + minutes;
-			}
-
-			if (seconds < 10) {
-				seconds = "0" + seconds;
-			}
-
-			const clock = `${hours}:${minutes}:${seconds}`,
-				  color = `#${hours}${minutes}${seconds}`;
-
-			clockElement.innerHTML = clock;
-			colorElement.innerHTML = `PAGE COLOR<br>${color}`;
-
-			document.body.style.background = color;
-		}
-
-		htmlCssJsClock();
-		setInterval(htmlCssJsClock, 1000);
-	</script>
-</body>
-</html>
-
--->
